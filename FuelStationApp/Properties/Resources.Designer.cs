@@ -61,23 +61,20 @@ namespace FuelStationApp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to using System;
-        ///using System.Collections.Generic;
-        ///using System.Linq;
-        ///using System.Text;
-        ///using System.Threading.Tasks;
-        ///
-        ///namespace FuelStationApp.Queries
-        ///{
-        ///    class DeleteCustomer
-        ///    {
-        ///    }
-        ///}
-        ///.
+        ///   Looks up a localized string similar to DELETE FROM [Customers] WHERE ID=&apos;{0}&apos;.
         /// </summary>
         internal static string DeleteCustomer {
             get {
                 return ResourceManager.GetString("DeleteCustomer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DELETE FROM [Employees] WHERE ID=&apos;{0}&apos;.
+        /// </summary>
+        internal static string DeleteEmployee {
+            get {
+                return ResourceManager.GetString("DeleteEmployee", resourceCulture);
             }
         }
         
@@ -91,9 +88,32 @@ namespace FuelStationApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO [Employees]
+        ///	([ID],[Name], [Surname], [DateStart],[DateEnd],[Salary]) 
+        ///VALUES
+        ///	(NEWID(), &apos;{0}&apos;, &apos; {1}&apos; , &apos;{2}&apos; ,&apos;{3}&apos; ,&apos;{4}&apos;).
+        /// </summary>
+        internal static string InsertEmployee {
+            get {
+                return ResourceManager.GetString("InsertEmployee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE [Customers]
+        ///SET [Name] = &apos;{0}&apos;, [Surname]= &apos;{1}&apos;, [CardNumber]= &apos;{2}&apos; 
+        ///WHERE [ID] = &apos;{3}&apos;.
+        /// </summary>
+        internal static string UpdateCustomer {
+            get {
+                return ResourceManager.GetString("UpdateCustomer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to UPDATE [dbo].Items
         ///SET  [Code] = &apos;{0}&apos;, [Description]= &apos;{1}&apos;, [ItemType]= &apos;{2}&apos;, [Price]= &apos;{3}&apos;,[Cost]= &apos;{4}&apos;
-        ///WHERE ID = &apos;{5}&apos;;
+        ///WHERE ID = &apos;{5}&apos;
         ///.
         /// </summary>
         internal static string UpdateItem {

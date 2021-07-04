@@ -15,7 +15,7 @@ namespace FuelStationApp.Impl {
         public Employee():base() {
 
         }
-        public Employee(string name, string surname, decimal salary):base() {
+        public Employee(string name, string surname, DateTime? dateStart, DateTime? dateEnd, decimal salary):base() {
 
             Name = name;
             Surname = surname;

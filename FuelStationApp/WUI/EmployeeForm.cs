@@ -1,4 +1,5 @@
 ﻿using FuelStationApp.Impl;
+using FuelStationApp.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,7 +26,7 @@ namespace FuelStationApp.WUI {
                 SqlCommandBuilder builder = new SqlCommandBuilder(data);
                 var dataset = new DataSet();
                 data.Fill(dataset);
-                gridCustomers.DataSource = dataset.Tables[0];
+                gridEmployees.DataSource = dataset.Tables[0];
                 Connection.Close();
             }
             catch (Exception ex) {
@@ -37,24 +38,36 @@ namespace FuelStationApp.WUI {
         public void AddEmployee() {
             string employeeName = Convert.ToString(ctrlName.EditValue);
             string employeeSurname = Convert.ToString(ctrlSurname.EditValue);
-            //DateTime employeeDateStart = Convert.ToDateTime(ctrlDateStart.EditValue);
-           // DateTime employeeDateEnd = Convert.ToDateTime(ctrlDateEnd.EditValue);
+            DateTime? dateStart = null ;
+            DateTime? dateEnd = null;
             decimal employeeSalary = Convert.ToDecimal(ctrlSalary.EditValue);
 
 
-            Employee newEmployee = new Employee(employeeName, employeeSurname, employeeSalary);
+            Employee newEmployee = new Employee(employeeName, employeeSurname, dateStart, dateEnd, employeeSalary);
 
 
-
-
-            SqlCommand cmd = new SqlCommand("INSERT INTO Employees (ID, Name, Surname,Salary) VALUES (NEWID(), '" + newEmployee.Name + "', '" + newEmployee.Surname + "','" + newEmployee.Salary + "')", Connection);
+            SqlCommand cmd = new SqlCommand(string.Format(Resources.InsertEmployee, employeeName, employeeSurname, dateStart, dateEnd, employeeSalary), Connection);
+  
             Connection.Open();
             cmd.ExecuteNonQuery();
             MessageBox.Show("Employees Succesfully Added");
             Connection.Close();
             PopulateDataGridView();
+        }
 
+        private void DeleteEmployee() {
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this customer?", "Warning", MessageBoxButtons.OKCancel);
 
+            if (result == DialogResult.OK) {
+
+                SqlCommand cmd = new SqlCommand(string.Format(Resources.DeleteEmployee, Convert.ToString(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "ID"))), Connection);
+                Connection.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Employee Record Succesfully Deleted!");
+                Connection.Close();
+                PopulateDataGridView();
+               
+            }
         }
 
         private void btnView_Click(object sender, EventArgs e) {
@@ -70,5 +83,18 @@ namespace FuelStationApp.WUI {
         private void btnCancel_Click(object sender, EventArgs e) {
             this.Close();
         }
+
+        private void btndelete_Click(object sender, EventArgs e) {
+            DeleteEmployee();
+        }
+
+        private void ctrlDateStart_EditValueChanged(object sender, EventArgs e) {
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e) {
+
+            }
+
+        }
     }
-}
