@@ -173,9 +173,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Queries\AddTransaction.sql" />
+    <Content Include="Queries\CalculatePay.sql" />
+    <Content Include="Queries\CostCalculation.sql" />
     <Content Include="Queries\DeleteCustomer.sql" />
     <Content Include="Queries\DeleteItem.sql" />
     <Content Include="Queries\DeleteEmployee.sql" />
+    <Content Include="Queries\Income.sql" />
     <Content Include="Queries\InsertEmployee.sql" />
     <Content Include="Queries\InsertItem.sql" />
     <Content Include="Queries\UpdateCustomer.sql" />

@@ -61,23 +61,32 @@ namespace FuelStationApp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to using System;
-        ///using System.Collections.Generic;
-        ///using System.Linq;
-        ///using System.Text;
-        ///using System.Threading.Tasks;
-        ///
-        ///namespace FuelStationApp.Queries
-        ///{
-        ///    class AddTransaction
-        ///    {
-        ///    }
-        ///}
-        ///.
+        ///   Looks up a localized string similar to INSERT INTO [Transaction](ID, [Date], CustomerID, DiscountValue, TotalValue) 
+        ///VALUES(&apos;{0}&apos;, &apos;{1}&apos;, &apos;{2}&apos;, &apos;{3}&apos;, &apos;{4}&apos;).
         /// </summary>
         internal static string AddTransaction {
             get {
                 return ResourceManager.GetString("AddTransaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CalculatePay {
+            get {
+                return ResourceManager.GetString("CalculatePay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT SUM(Cast (TotalValue as money)) AS &apos;Expenses&apos; 
+        ///FROM [Transaction] 
+        ///WHERE [Date] BETWEEN &apos;{0}&apos; AND &apos;{1}&apos;.
+        /// </summary>
+        internal static string CostCalculation {
+            get {
+                return ResourceManager.GetString("CostCalculation", resourceCulture);
             }
         }
         
@@ -105,6 +114,19 @@ namespace FuelStationApp.Properties {
         internal static string DeleteItem {
             get {
                 return ResourceManager.GetString("DeleteItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///SELECT SUM(Cast (DiscountValue as money)) AS &apos;Income&apos;
+        ///FROM [Transaction] 
+        ///WHERE [Date] BETWEEN &apos;{0}&apos; AND &apos;{1}&apos;
+        ///.
+        /// </summary>
+        internal static string Income {
+            get {
+                return ResourceManager.GetString("Income", resourceCulture);
             }
         }
         

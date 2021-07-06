@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FuelStationApp.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,9 +14,24 @@ namespace FuelStationApp.WUI {
     public partial class LedgerForm : Form {
         public SqlConnection Connection { get; set; }
         
-        private const decimal rent = 1500m;
+       
         public LedgerForm() {
             InitializeComponent();
+        }
+
+        private decimal FetchingData(string myquery) {
+            try {
+                Connection.Open();
+                SqlCommand cmd = new SqlCommand(myquery, Connection);
+                string result = Convert.ToString(cmd.ExecuteScalar());
+                Connection.Close();
+                return Convert.ToDecimal(result);
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+                Connection.Close();
+                return 0;
+            }
         }
 
 
@@ -26,39 +42,27 @@ namespace FuelStationApp.WUI {
 
             DateTime dateEnd = Convert.ToDateTime(ctrlDateΤο.EditValue);
 
-            const decimal rent = 1500m;
+            const decimal rent = 5000m;
 
-            decimal totalRentCount = (dateEnd - dateStart).Days * rent / 25;
+            decimal totalRentCount = (dateEnd - dateStart).Days * rent / 30;
 
             try
             {
-                Connection.Open();
-                string sqlCommandIncome = "SELECT SUM(DiscountValue) AS 'Income' FROM [Transactions] WHERE [Date] BETWEEN '" + dateStart.ToString("yyyy-MM-dd") + "' AND '" + dateEnd.ToString("yyyy-MM-dd") + "'";
-                SqlCommand Income = new SqlCommand(sqlCommandIncome, Connection);
+               
+                string sqlCommandIncome = String.Format(Resources.Income, dateStart.ToString("yyyy-MM-dd"), dateEnd.ToString("yyyy-MM-dd"));
+                decimal income = FetchingData(sqlCommandIncome);
+               
 
-                //Executes the query, and returns the first column of the first row in the result set returned by the query. Additional columns or rows are ignored.
-                string income = Convert.ToString(Income.ExecuteScalar());
+                string sqlCommandCost = String.Format(Resources.CostCalculation, dateStart.ToString("yyyy-MM-dd"), dateEnd.ToString("yyyy-MM-dd"));
+                decimal itemsCost = FetchingData(sqlCommandCost);
 
+                
 
-                string sqlCommandExpenses = "SELECT SUM(TotalValue) AS 'ExpensesCost' FROM [Transactions] WHERE [Date] BETWEEN '" + dateStart.ToString("yyyy-MM-dd") + "' AND '" + dateEnd.ToString("yyyy-MM-dd") + "'";
-                SqlCommand ExpensesCost = new SqlCommand(sqlCommandExpenses, Connection);
-
-               // Executes the query, and returns the first column of the first row in the result set returned by the query.Additional columns or rows are ignored.
-                string itemsCost = Convert.ToString(ExpensesCost.ExecuteScalar());
-
-
-              
-
-                string sqlCommandEmployees = "SELECT SUM(Salary) AS 'Cost' FROM [Employees] WHERE [Date] BETWEEN '" + dateStart.ToString("yyyy-MM-dd") + "' AND '" + dateEnd.ToString("yyyy-MM-dd") + "'";
-
-                SqlCommand cmdEmployees = new SqlCommand(sqlCommandEmployees, Connection);
-
-                string employeesCost = Convert.ToString(ExpensesCost.ExecuteScalar());
-
-                Connection.Close();
-
+                decimal expenses = itemsCost + totalRentCount;
                 ctrlIncome.EditValue = income;
-                ctrlExpenses.EditValue = employeesCost + itemsCost + totalRentCount;
+                ctrlExpenses.EditValue = expenses;
+
+                TotalValueCalculation(income, expenses);
 
             }
             catch (Exception ex)
@@ -67,6 +71,20 @@ namespace FuelStationApp.WUI {
                 Connection.Close();
             }
         }
+        private void TotalValueCalculation(decimal income, decimal expenses) {
+            decimal total;
+            if (income > expenses) {
+                total = income - expenses;
+                ctrlTotal.EditValue = Convert.ToString(total);
+              
+            }
+            else {
+                total = expenses - income;
+                ctrlTotal.EditValue = Convert.ToString(total);
+               
+            }
+        }
+
 
 
         private void labelControl6_Click(object sender, EventArgs e) {
@@ -76,6 +94,14 @@ namespace FuelStationApp.WUI {
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Dates();
+        }
+
+        private void ctrlExpenses_EditValueChanged(object sender, EventArgs e) {
+
+        }
+
+        private void ctrlIncome_EditValueChanged(object sender, EventArgs e) {
+
         }
     }
 }

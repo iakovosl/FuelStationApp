@@ -35,6 +35,8 @@ namespace FuelStationApp.WUI {
             this.ctrlExpenses = new DevExpress.XtraEditors.TextEdit();
             this.ctrlTotal = new DevExpress.XtraEditors.TextEdit();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.ctrlTotalValue = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlDateFrom.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlDateFrom.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlDateΤο.Properties.CalendarTimeProperties)).BeginInit();
@@ -42,6 +44,7 @@ namespace FuelStationApp.WUI {
             ((System.ComponentModel.ISupportInitialize)(this.ctrlIncome.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlExpenses.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlTotal.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlTotalValue.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ctrlDateFrom
@@ -142,7 +145,7 @@ namespace FuelStationApp.WUI {
             this.ctrlIncome.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.ctrlIncome.EditValue = "";
             this.ctrlIncome.Enabled = false;
-            this.ctrlIncome.Location = new System.Drawing.Point(124, 243);
+            this.ctrlIncome.Location = new System.Drawing.Point(97, 246);
             this.ctrlIncome.Name = "ctrlIncome";
             this.ctrlIncome.Properties.Appearance.BackColor = System.Drawing.SystemColors.Control;
             this.ctrlIncome.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -153,6 +156,7 @@ namespace FuelStationApp.WUI {
             this.ctrlIncome.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.ctrlIncome.Size = new System.Drawing.Size(337, 26);
             this.ctrlIncome.TabIndex = 93;
+            this.ctrlIncome.EditValueChanged += new System.EventHandler(this.ctrlIncome_EditValueChanged);
             // 
             // ctrlExpenses
             // 
@@ -160,7 +164,7 @@ namespace FuelStationApp.WUI {
             this.ctrlExpenses.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.ctrlExpenses.EditValue = "";
             this.ctrlExpenses.Enabled = false;
-            this.ctrlExpenses.Location = new System.Drawing.Point(124, 313);
+            this.ctrlExpenses.Location = new System.Drawing.Point(97, 316);
             this.ctrlExpenses.Name = "ctrlExpenses";
             this.ctrlExpenses.Properties.Appearance.BackColor = System.Drawing.SystemColors.Control;
             this.ctrlExpenses.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -171,6 +175,7 @@ namespace FuelStationApp.WUI {
             this.ctrlExpenses.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.ctrlExpenses.Size = new System.Drawing.Size(337, 26);
             this.ctrlExpenses.TabIndex = 94;
+            this.ctrlExpenses.EditValueChanged += new System.EventHandler(this.ctrlExpenses_EditValueChanged);
             // 
             // ctrlTotal
             // 
@@ -208,11 +213,44 @@ namespace FuelStationApp.WUI {
             this.btnAdd.Text = "Calculate the Ledger";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // labelControl6
+            // 
+            this.labelControl6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelControl6.Appearance.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.labelControl6.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.labelControl6.Appearance.Options.UseFont = true;
+            this.labelControl6.Appearance.Options.UseForeColor = true;
+            this.labelControl6.Location = new System.Drawing.Point(12, 395);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(43, 21);
+            this.labelControl6.TabIndex = 98;
+            this.labelControl6.Text = "Total:";
+            // 
+            // ctrlTotalValue
+            // 
+            this.ctrlTotalValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctrlTotalValue.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ctrlTotalValue.EditValue = "";
+            this.ctrlTotalValue.Enabled = false;
+            this.ctrlTotalValue.Location = new System.Drawing.Point(213, 393);
+            this.ctrlTotalValue.Name = "ctrlTotalValue";
+            this.ctrlTotalValue.Properties.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.ctrlTotalValue.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlTotalValue.Properties.Appearance.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.ctrlTotalValue.Properties.Appearance.Options.UseBackColor = true;
+            this.ctrlTotalValue.Properties.Appearance.Options.UseFont = true;
+            this.ctrlTotalValue.Properties.Appearance.Options.UseForeColor = true;
+            this.ctrlTotalValue.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.ctrlTotalValue.Size = new System.Drawing.Size(337, 26);
+            this.ctrlTotalValue.TabIndex = 99;
+            // 
             // LedgerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ctrlTotalValue);
+            this.Controls.Add(this.labelControl6);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.ctrlTotal);
             this.Controls.Add(this.ctrlExpenses);
@@ -233,6 +271,7 @@ namespace FuelStationApp.WUI {
             ((System.ComponentModel.ISupportInitialize)(this.ctrlIncome.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlExpenses.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlTotal.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlTotalValue.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,5 +290,7 @@ namespace FuelStationApp.WUI {
         private DevExpress.XtraEditors.TextEdit ctrlExpenses;
         private DevExpress.XtraEditors.TextEdit ctrlTotal;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.TextEdit ctrlTotalValue;
     }
 }

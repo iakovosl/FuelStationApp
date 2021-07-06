@@ -149,12 +149,7 @@ namespace FuelStationApp.WUI {
                     MessageBox.Show(ex.Message);
                     Connection.Close();
                 }
-
-               
             }
-
-
-
         }
 
         private void btnViewTransaction_Click(object sender, EventArgs e) {

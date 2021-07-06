@@ -121,6 +121,12 @@
   <data name="AddTransaction" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\queries\addtransaction.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="CalculatePay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\queries\calculatepay.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CostCalculation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\queries\costcalculation.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="DeleteCustomer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\queries\deletecustomer.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
@@ -129,6 +135,9 @@
   </data>
   <data name="DeleteItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\queries\deleteitem.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Income" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\queries\income.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="InsertEmployee" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\queries\insertemployee.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
