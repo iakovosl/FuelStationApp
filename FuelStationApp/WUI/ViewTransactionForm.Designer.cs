@@ -96,29 +96,25 @@ namespace FuelStationApp.WUI {
             // 
             this.colID.FieldName = "ID";
             this.colID.Name = "colID";
-            this.colID.Visible = true;
-            this.colID.VisibleIndex = 0;
             // 
             // colDate
             // 
             this.colDate.FieldName = "Date";
             this.colDate.Name = "colDate";
             this.colDate.Visible = true;
-            this.colDate.VisibleIndex = 1;
+            this.colDate.VisibleIndex = 0;
             // 
             // colCustomerID
             // 
             this.colCustomerID.FieldName = "CustomerID";
             this.colCustomerID.Name = "colCustomerID";
-            this.colCustomerID.Visible = true;
-            this.colCustomerID.VisibleIndex = 2;
             // 
             // colTotalValue
             // 
             this.colTotalValue.FieldName = "TotalValue";
             this.colTotalValue.Name = "colTotalValue";
             this.colTotalValue.Visible = true;
-            this.colTotalValue.VisibleIndex = 4;
+            this.colTotalValue.VisibleIndex = 2;
             // 
             // colTotalCost
             // 
@@ -130,7 +126,7 @@ namespace FuelStationApp.WUI {
             this.ColDiscountValue.FieldName = "DiscountValue";
             this.ColDiscountValue.Name = "ColDiscountValue";
             this.ColDiscountValue.Visible = true;
-            this.ColDiscountValue.VisibleIndex = 3;
+            this.ColDiscountValue.VisibleIndex = 1;
             // 
             // labelControlName
             // 

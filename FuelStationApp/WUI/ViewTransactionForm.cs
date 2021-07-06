@@ -21,7 +21,7 @@ namespace FuelStationApp.WUI {
         void PopulateDataGridView() {
             try {
                 Connection.Open();
-                string MyQuery = "SELECT * FROM Transactions";
+                string MyQuery = "SELECT * FROM [Transaction]";
                 SqlDataAdapter data = new SqlDataAdapter(MyQuery, Connection);
                 SqlCommandBuilder builder = new SqlCommandBuilder(data);
                 var dataset = new DataSet();

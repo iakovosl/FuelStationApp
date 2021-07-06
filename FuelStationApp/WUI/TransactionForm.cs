@@ -1,4 +1,5 @@
 ﻿using FuelStationApp.Impl;
+using FuelStationApp.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -120,6 +121,46 @@ namespace FuelStationApp.WUI {
 
         private void ctrlItemType_SelectedIndexChanged(object sender, EventArgs e) {
 
+        }
+
+        private void btnInsertTransaction_Click(object sender, EventArgs e) {
+
+            if (TransactionLines.Count == 0) {
+                MessageBox.Show("Please select Items!");
+            }
+            else {
+                Transaction newTransaction = new Transaction(
+                    CustomerId,
+                    Convert.ToDecimal(ctrlDiscountValue.Text),
+                    Convert.ToDecimal(ctrlTotalValue.Text)
+                    
+                );
+
+                try {
+                    Connection.Open();
+                    string MyQeury = String.Format(Resources.AddTransaction, newTransaction.ID, newTransaction.GetDate(), newTransaction.CustomerID, newTransaction.DiscountValue, newTransaction.TotalValue);
+                    SqlCommand cmd = new SqlCommand(MyQeury, Connection);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Transaction Succesfully Added");
+
+                    Connection.Close();
+                }
+                catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
+                    Connection.Close();
+                }
+
+               
+            }
+
+
+
+        }
+
+        private void btnViewTransaction_Click(object sender, EventArgs e) {
+            ViewTransactionForm viewTransaction = new ViewTransactionForm();
+            viewTransaction.Connection = Connection;
+            viewTransaction.ShowDialog();
         }
     }
 }

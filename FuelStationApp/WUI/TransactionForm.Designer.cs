@@ -51,6 +51,8 @@ namespace FuelStationApp.WUI {
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.ctrlTotalCost = new DevExpress.XtraEditors.TextEdit();
             this.ctrlQuantity2 = new DevExpress.XtraEditors.SpinEdit();
+            this.btnInsertTransaction = new DevExpress.XtraEditors.SimpleButton();
+            this.btnViewTransaction = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewListItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridTransactionLines)).BeginInit();
@@ -153,8 +155,6 @@ namespace FuelStationApp.WUI {
             // 
             this.colItemID.FieldName = "ItemID";
             this.colItemID.Name = "colItemID";
-            this.colItemID.Visible = true;
-            this.colItemID.VisibleIndex = 3;
             // 
             // colQuantity
             // 
@@ -182,14 +182,14 @@ namespace FuelStationApp.WUI {
             this.gridColumn1.FieldName = "Cost";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 4;
+            this.gridColumn1.VisibleIndex = 3;
             // 
             // colItemType
             // 
             this.colItemType.FieldName = "ItemType";
             this.colItemType.Name = "colItemType";
             this.colItemType.Visible = true;
-            this.colItemType.VisibleIndex = 5;
+            this.colItemType.VisibleIndex = 4;
             // 
             // labelControl1
             // 
@@ -359,11 +359,51 @@ namespace FuelStationApp.WUI {
             this.ctrlQuantity2.Size = new System.Drawing.Size(85, 20);
             this.ctrlQuantity2.TabIndex = 103;
             // 
+            // btnInsertTransaction
+            // 
+            this.btnInsertTransaction.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnInsertTransaction.Appearance.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnInsertTransaction.Appearance.BorderColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnInsertTransaction.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.btnInsertTransaction.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnInsertTransaction.Appearance.Options.UseBackColor = true;
+            this.btnInsertTransaction.Appearance.Options.UseBorderColor = true;
+            this.btnInsertTransaction.Appearance.Options.UseFont = true;
+            this.btnInsertTransaction.Appearance.Options.UseForeColor = true;
+            this.btnInsertTransaction.Location = new System.Drawing.Point(564, 221);
+            this.btnInsertTransaction.Margin = new System.Windows.Forms.Padding(4);
+            this.btnInsertTransaction.Name = "btnInsertTransaction";
+            this.btnInsertTransaction.Size = new System.Drawing.Size(132, 28);
+            this.btnInsertTransaction.TabIndex = 104;
+            this.btnInsertTransaction.Text = "Save Transaction";
+            this.btnInsertTransaction.Click += new System.EventHandler(this.btnInsertTransaction_Click);
+            // 
+            // btnViewTransaction
+            // 
+            this.btnViewTransaction.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnViewTransaction.Appearance.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnViewTransaction.Appearance.BorderColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnViewTransaction.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.btnViewTransaction.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnViewTransaction.Appearance.Options.UseBackColor = true;
+            this.btnViewTransaction.Appearance.Options.UseBorderColor = true;
+            this.btnViewTransaction.Appearance.Options.UseFont = true;
+            this.btnViewTransaction.Appearance.Options.UseForeColor = true;
+            this.btnViewTransaction.Location = new System.Drawing.Point(564, 277);
+            this.btnViewTransaction.Margin = new System.Windows.Forms.Padding(4);
+            this.btnViewTransaction.Name = "btnViewTransaction";
+            this.btnViewTransaction.Size = new System.Drawing.Size(132, 28);
+            this.btnViewTransaction.TabIndex = 105;
+            this.btnViewTransaction.Text = "View Transaction";
+            this.btnViewTransaction.Click += new System.EventHandler(this.btnViewTransaction_Click);
+            // 
             // TransactionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1277, 590);
+            this.Controls.Add(this.btnViewTransaction);
+            this.Controls.Add(this.btnInsertTransaction);
             this.Controls.Add(this.ctrlQuantity2);
             this.Controls.Add(this.ctrlTotalCost);
             this.Controls.Add(this.labelControl4);
@@ -422,5 +462,7 @@ namespace FuelStationApp.WUI {
         private DevExpress.XtraEditors.TextEdit ctrlTotalCost;
         private DevExpress.XtraEditors.SpinEdit ctrlQuantity2;
         private DevExpress.XtraGrid.GridControl gridViewItems;
+        private DevExpress.XtraEditors.SimpleButton btnInsertTransaction;
+        private DevExpress.XtraEditors.SimpleButton btnViewTransaction;
     }
 }

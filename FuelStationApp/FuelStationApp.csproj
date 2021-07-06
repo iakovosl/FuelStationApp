@@ -172,6 +172,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Queries\AddTransaction.sql" />
     <Content Include="Queries\DeleteCustomer.sql" />
     <Content Include="Queries\DeleteItem.sql" />
     <Content Include="Queries\DeleteEmployee.sql" />
@@ -179,6 +180,7 @@
     <Content Include="Queries\InsertItem.sql" />
     <Content Include="Queries\UpdateCustomer.sql" />
     <Content Include="Queries\UpdateItem.sql" />
+    <Content Include="Queries\ViewTransaction.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

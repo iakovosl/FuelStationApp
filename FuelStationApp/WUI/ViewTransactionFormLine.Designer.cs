@@ -79,36 +79,32 @@ namespace FuelStationApp.WUI {
             // 
             this.colTransactionId.FieldName = "TransactionId";
             this.colTransactionId.Name = "colTransactionId";
-            this.colTransactionId.Visible = true;
-            this.colTransactionId.VisibleIndex = 0;
             // 
             // colItemID
             // 
             this.colItemID.FieldName = "ItemID";
             this.colItemID.Name = "colItemID";
-            this.colItemID.Visible = true;
-            this.colItemID.VisibleIndex = 1;
             // 
             // colQuantity
             // 
             this.colQuantity.FieldName = "Quantity";
             this.colQuantity.Name = "colQuantity";
             this.colQuantity.Visible = true;
-            this.colQuantity.VisibleIndex = 2;
+            this.colQuantity.VisibleIndex = 0;
             // 
             // colItemPrice
             // 
             this.colItemPrice.FieldName = "ItemPrice";
             this.colItemPrice.Name = "colItemPrice";
             this.colItemPrice.Visible = true;
-            this.colItemPrice.VisibleIndex = 3;
+            this.colItemPrice.VisibleIndex = 1;
             // 
             // colValue
             // 
             this.colValue.FieldName = "Value";
             this.colValue.Name = "colValue";
             this.colValue.Visible = true;
-            this.colValue.VisibleIndex = 4;
+            this.colValue.VisibleIndex = 2;
             // 
             // colCost
             // 
